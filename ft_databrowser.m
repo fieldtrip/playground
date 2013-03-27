@@ -8,7 +8,7 @@ function [cfg] = ft_databrowser(cfg, data)
 % data, a right-click will bring up a context-menu containing functions to be
 % executed on the selected data. You can use your own function using cfg.selfun
 % and cfg.selcfg. You can use multiple functions by giving the names/cfgs as a
-% cell-array.
+% cell-array. Contrasting to most fieldtrip functions, ft_databrowser actually h% as a graphical user interface.
 %
 % Use as
 %   cfg = ft_databrowser(cfg)
