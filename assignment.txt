@@ -1,7 +1,7 @@
 this line has to be fixed by Jorn
 Im totally fastest!
 this line has to be fixed by Eelke
-this line has to be fixed by Johanna
+this line has to be fixed by Johanna: first change by the web GUI thingee.
 this line has to be fixed by Lilla
 this line has to be fixed by Arjen
 this line has to be fixed by Diego
