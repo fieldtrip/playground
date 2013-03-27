@@ -5,6 +5,4 @@ this line has to be fixed by Johanna: via GUI
 this line has to be fixed by Lilla: Hmmmm
 this line has to be fixed by Arjen
 this line has to be fixed by Diego
-this line has to be fixed by Johanna
-this line has to be fixed by Eelke
-this line has to be fixed by Robert
+Robert fixed it in a branch in a clone of a fork. Roemer probably skipped the branching, foei!
