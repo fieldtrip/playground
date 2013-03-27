@@ -1,8 +1,9 @@
 Line #2 is a lie
-Im totally fastest!
+Im totally fastest! Ha! I also did it with my own fork: 2forks1dir
 this line has to be fixed by Jim - because Eelke left early
-this line has to be fixed by Johanna: via GUI
+this line has to be fixed by Johanna: via GUI. now trying via fork
 this line has to be fixed by Lilla: Hmmmm
 this line has to be fixed by Arjen
 this line has to be fixed by Diego: lines 
-this line has to be fixed by Robert
+Robert fixed it in a branch in a clone of a fork. Roemer probably skipped the branching, foei!
+I guess Jan-Mathijs can do this as well.
