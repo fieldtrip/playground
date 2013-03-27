@@ -1,5 +1,5 @@
 Line #2 is a lie
-Im totally fastest!
+Im totally fastest! Ha! I also did it with my own fork: 2forks1dir
 this line has to be fixed by Jim - because Eelke left early
 this line has to be fixed by Johanna: via GUI
 this line has to be fixed by Lilla: Hmmmm
