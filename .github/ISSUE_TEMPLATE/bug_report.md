@@ -7,6 +7,23 @@ assignees: ''
 
 ---
 
+**Before you start**
+
+1. Have you checked on both the [FieldTrip discussion list](http://fieldtriptoolbox.org/discussion_list)
+   and the [GitHub issue list](https://github.com/fieldtrip/fieldtrip/issues)
+   to see if anybody else has lodged a similar observation.
+
+2. How confident are you that the behaviour you have observed is in fact a
+   genuine bug, and not a misunderstanding?
+
+   -  *Confident*: Please [open a new GitHub issue](https://github.com/fieldtrip/fieldtrip/issues/new);
+      select the "bug report" issue template to get started.
+
+   -  *Not so confident*: That's fine! Consider instead creating a new topic
+      on the [FieldTrip discussion list](http://fieldtriptoolbox.org/discussion_list);
+      others can then comment on your observation and determine the
+      appropriate level of escalation.
+      
 **Describe the bug**
 A clear and concise description of what the bug is.
 
