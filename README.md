@@ -5,3 +5,5 @@ contains some code for the MATLAB continuous integration cloud
 service.
 
 See https://mathworks.github.io/ci-pilot/ for details.
+
+We are also using it to test CODEOWNERS and issue templates.
