@@ -49,7 +49,7 @@ and expanding this software, and to ensure that all who make such
 contributions receive appropriate acknowledgement through Git.
 
 The instructions below give an short overview of how to go about generating a
-proposed change to FieldTrip. A more detailed tutorial on using git and contributing 
+proposed change to FieldTrip. A more detailed tutorial on using Git and contributing 
 to the code (or website) is presented as [online tutorial](http://www.fieldtriptoolbox.org/development/git/) 
 on the FieldTrip website. The FieldTrip developers are however more
 than willing to be engaged in the process for those without experience
