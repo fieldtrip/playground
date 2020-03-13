@@ -6,4 +6,4 @@ service.
 
 See https://mathworks.github.io/ci-pilot/ for details.
 
-But I am also using it to try out tagging and releasing.
+We are also using it to test CODEOWNERS and issue templates.
