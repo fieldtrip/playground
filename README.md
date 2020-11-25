@@ -8,4 +8,4 @@ See https://mathworks.github.io/ci-pilot/ for details.
 
 We are also using it to test CODEOWNERS and issue templates.
 
-We are also using it to test webhooks.
+We are also using it to test webhooks and actions.
