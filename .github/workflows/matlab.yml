@@ -1,7 +1,11 @@
+name: MATLAB workflow
+
 language: matlab
+
 matlab:
   - latest  # Default MATLAB release on Travis CI
   - R2021a
   - R2020a
   - R2019a
+
 script: matlab -batch 'disp("Hello World")'
