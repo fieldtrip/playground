@@ -1,3 +1,5 @@
+[![MATLAB workflow](https://github.com/fieldtrip/playground/actions/workflows/matlab.yml/badge.svg)](https://github.com/fieldtrip/playground/actions/workflows/matlab.yml)
+
 # FieldTrip playground
 
 This repository is used to try out various things:
