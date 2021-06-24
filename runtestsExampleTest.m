@@ -1,4 +1,4 @@
-function tests = runtestsExampleTest
+function tests = runLocalTest
 tests = functiontests(localfunctions);
 
 function testFunctionOne(testCase)
