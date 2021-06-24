@@ -1,5 +1,8 @@
 name: MATLAB workflow
 
+on:
+  workflow_dispatch:
+  
 language: matlab
 
 matlab:
