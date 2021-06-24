@@ -5,7 +5,7 @@ function testFunctionOne(testCase)
 disp('testFunctionOne: pass');
 
 function testFunctionTwo(testCase)
-error('testFunctionTwo: fail');
+warning('testFunctionTwo: warning');
 
 function testFunctionThree(testCase)
 disp('testFunctionThree: pass');
