@@ -1,2 +1,6 @@
 language: matlab
-script: matlab -batch "runAllMyTests"
+matlab:
+  - latest  # Default MATLAB release on Travis CI
+  - R2021a
+  - R2020a
+  - R2019a
