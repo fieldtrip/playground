@@ -2,13 +2,17 @@ name: MATLAB workflow
 
 on:
   workflow_dispatch:
-  
-language: matlab
 
-matlab:
-  - latest  # Default MATLAB release on Travis CI
-  - R2021a
-  - R2020a
-  - R2019a
-
-script: matlab -batch 'disp("Hello World")'
+jobs:
+  my-job:
+    name: Run MATLAB Script
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v1
+      - name: Run script
+        uses: matlab-actions/run-command@v1
+        with:
+          command: myscript
