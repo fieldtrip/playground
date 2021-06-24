@@ -1,4 +1,2 @@
-language: minimal
-dist: xenial
-install: wget -qO- --retry-connrefused https://ssd.mathworks.com/supportfiles/ci/ephemeral-matlab/v0/install.sh | sudo -E bash
+language: matlab
 script: matlab -batch "runAllMyTests"
