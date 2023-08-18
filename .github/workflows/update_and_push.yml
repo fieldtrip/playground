@@ -1,0 +1,73 @@
+name: Update and push
+          
+on:
+  push:
+    # branches:
+    #   - master
+          
+jobs:     
+  uypdate_and_push:
+    name: Update and push
+    runs-on: ubuntu-latest
+      
+    steps:
+      - uses: actions/checkout@v2
+        with: 
+          fetch-depth: 0  # all branches and tags
+      
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+        
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
+
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
+
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
+
+      - name: Print a greeting
+        env:
+          GREET: Hello
+          SOMEONE: World
+        run: |
+          echo $GREET $SOMEONE.
+
+      - name: Print another greeting
+        env:
+          GREET: Hi
+          SOMEONE: there
+        run: |
+          echo $GREET $SOMEONE.
+
+      - name: Set git identity
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Run bash script
+        run: |
+          bash --version
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "automatically synchronized identical files to ${{ github.sha }}"
