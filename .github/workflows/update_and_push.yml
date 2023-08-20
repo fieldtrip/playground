@@ -6,7 +6,7 @@ on:
     #   - master
           
 jobs:     
-  uypdate_and_push:
+  update_and_push:
     name: Update and push
     runs-on: ubuntu-latest
       
