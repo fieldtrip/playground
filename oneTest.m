@@ -1,3 +1,3 @@
 function oneTest
 
-disp('two')
+disp('one')
