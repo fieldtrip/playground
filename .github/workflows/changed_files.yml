@@ -15,7 +15,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get all test, doc and src files that have changed
+      - name: Get all changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v38
+        
+        # To compare changes between the current commit and the last pushed remote commit set `since_last_remote_commit: true`. e.g
+        # with:
+        #   since_last_remote_commit: true 
+
+      - name: List all changed files
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
+
+      - name: Get matlab files that have changed
         id: changed-files-yaml
         uses: tj-actions/changed-files@v38
         with:
@@ -26,12 +40,12 @@ jobs:
               - '!/test/**.m'
 
       - name: Run step if test file(s) change
-        if: steps.changed-files-yaml.outputs.test_any_changed == 'true'  
+        if: steps.changed-files-yaml.outputs.matlab_any_changed == 'true'  
         run: |
           echo "Thes files have changed: ${{ steps.changed-files-yaml.outputs.matlab_all_changed_files }}"
       
       - name: List all changed files
-        if: steps.changed-files-yaml.outputs.test_any_changed == 'true'  
+        if: steps.changed-files-yaml.outputs.matlab_any_changed == 'true'  
         run: |
           for file in ${{ steps.changed-files.outputs.matlab_all_changed_files }}; do
             echo "$file was changed"
