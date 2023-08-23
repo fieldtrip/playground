@@ -1,9 +1,10 @@
 name: Changed files
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   changed_files:
