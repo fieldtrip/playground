@@ -23,31 +23,14 @@ jobs:
         # with:
         #   since_last_remote_commit: true 
 
+      - name: Show all changed files
+        if: steps.changed-files.outputs.all_any_changed == 'true'
+        run: |
+          echo "the following files were changed: ${{ steps.changed-files.outputs.all_changed_files }}"
+
       - name: List all changed files
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
-
-      - name: Get matlab files that have changed
-        id: changed-files-yaml
-        uses: tj-actions/changed-files@v38
-        with:
-          files_yaml: |
-            matlab:
-              - '**/*.m'
-              - '!/external/**.m'
-              - '!/test/**.m'
-
-      - name: Run step if test file(s) change
-        if: steps.changed-files-yaml.outputs.matlab_any_changed == 'true'  
-        run: |
-          echo "Thes files have changed: ${{ steps.changed-files-yaml.outputs.matlab_all_changed_files }}"
-      
-      - name: List all changed files
-        if: steps.changed-files-yaml.outputs.matlab_any_changed == 'true'  
-        run: |
-          for file in ${{ steps.changed-files.outputs.matlab_all_changed_files }}; do
             echo "$file was changed"
           done
 
