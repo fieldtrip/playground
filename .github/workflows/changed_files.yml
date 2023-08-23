@@ -1,7 +1,7 @@
 name: Changed files
 
 on:
-  merge:
+  push:
     branches:
       - main
 
