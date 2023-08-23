@@ -15,18 +15,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-        
       - name: Get all changed files
         id: changed-files
         uses: tj-actions/changed-files@v38
-        
-        # To compare changes between the current commit and the last pushed remote commit set `since_last_remote_commit: true`. e.g
-        # with:
-        #   since_last_remote_commit: true 
+
+      - name: Dump Changed files context
+        env:
+          CHANGED_CONTEXT: ${{ toJson(steps.changed-files) }}
+        run: | 
+          echo "$CHANGED_CONTEXT"
 
       - name: Show all changed files
         if: steps.changed-files.outputs.all_any_changed == 'true'
