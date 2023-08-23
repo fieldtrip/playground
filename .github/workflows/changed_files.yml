@@ -1,0 +1,38 @@
+name: Changed files
+
+on:
+  merge:
+    branches:
+      - main
+
+jobs:
+  changed_files:
+    runs-on: ubuntu-latest  # windows-latest || macos-latest
+    name: Changed files
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get all test, doc and src files that have changed
+        id: changed-files-yaml
+        uses: tj-actions/changed-files@v38
+        with:
+          files_yaml: |
+            matlab:
+              - '**/*.m'
+              - '!/external/**.m'
+              - '!/test/**.m'
+
+      - name: Run step if test file(s) change
+        if: steps.changed-files-yaml.outputs.test_any_changed == 'true'  
+        run: |
+          echo "Thes files have changed: ${{ steps.changed-files-yaml.outputs.matlab_all_changed_files }}"
+      
+      - name: List all changed files
+        if: steps.changed-files-yaml.outputs.test_any_changed == 'true'  
+        run: |
+          for file in ${{ steps.changed-files.outputs.matlab_all_changed_files }}; do
+            echo "$file was changed"
+          done
+
