@@ -1,3 +1,5 @@
+# See https://github.com/marketplace/actions/changed-files
+
 name: Changed files
 
 on:
@@ -26,7 +28,6 @@ jobs:
           echo "$CHANGED_CONTEXT"
 
       - name: Show all changed files
-        if: steps.changed-files.outputs.all_any_changed == 'true'
         run: |
           echo "the following files were changed: ${{ steps.changed-files.outputs.all_changed_files }}"
 
