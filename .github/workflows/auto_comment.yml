@@ -23,12 +23,12 @@ jobs:
       - name: Print hello
         id: print-hello
         run: |
-          ( python .github/scripts/hello_world.py ) >> "$GITHUB_OUTPUT"
+          python .github/scripts/hello_world.py >> $GITHUB_HELLO
 
       - name: Show hello
         id: show-hello
         run: |
-          echo ${{ steps.print-hello.outputs }}
+          echo ${{ env.GITHUB_HELLO }}
   
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v3
