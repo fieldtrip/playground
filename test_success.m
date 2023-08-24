@@ -1,6 +1,8 @@
-function test_success
+function tests = test_success
+tests = functiontests(localfunctions);
 
-% This test script always succeeds
 
+function actualTest(testCase)
+
+%% This test script always succeeds
 disp('Success');
-
