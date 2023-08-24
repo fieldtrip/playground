@@ -24,7 +24,7 @@ jobs:
         id: print-hello
         # this uses https://trstringer.com/github-actions-multiline-strings/
         run: |
-          HELLO=$(python .github/scripts/hello_world.py)
+          MY_STRING=$(python .github/scripts/hello_world.py)
           echo "MY_STRING<<EOF" >> $GITHUB_ENV
           echo "$MY_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
