@@ -23,23 +23,15 @@ jobs:
       - name: Print hello
         id: print-hello
         run: |
-          python .github/scripts/hello_world.py > ./tempfile
-          ls -al
-          cat ./tempfile
+          python .github/scripts/hello_world.py > ./comment
 
       - name: Show hello
         id: show-hello
         run: |
-          cat ./tempfile
+          cat ./comment
   
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ github.event.number }} 
-          body: |
-            This is a multi-line test comment
-            - With GitHub **Markdown** :sparkles:
-            - Created by [create-or-update-comment][1]
-
-            [1]: https://github.com/peter-evans/create-or-update-comment
-          reactions: '+1'
+          body-path: ./comment
