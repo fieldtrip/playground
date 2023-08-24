@@ -1,4 +1,4 @@
-name: Create comment
+name: Suggest tests
           
 on:
   pull_request:
@@ -20,17 +20,12 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Print hello
+      - name: Find suggested tests
         id: print-hello
         run: |
-          python .github/scripts/hello_world.py > ./comment
+          python .github/scripts/comment_suggestions.py > ./comment
 
-      - name: Show hello
-        id: show-hello
-        run: |
-          cat ./comment
-  
-      - name: Create comment
+      - name: Create comment with suggested tests
         uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ github.event.number }} 
