@@ -1,20 +1,20 @@
- name: MATLAB workflow
+name: MATLAB workflow
 
- on:
-   # this workflow is triggered manually
-   workflow_dispatch:
+on:
+  # this workflow is triggered manually
+  workflow_dispatch:
 
- jobs:
-   my-job:
-     name: Run MATLAB command
-     runs-on: ubuntu-latest
-     steps:
-       - name: Check out repository
-         uses: actions/checkout@v2
-       - name: Set up MATLAB
-         uses: matlab-actions/setup-matlab@v1
-       - name: Run command
-         uses: matlab-actions/run-command@v1
-         with:
-           # show the MATLAB version and list the toolboxes
-           command: "ver"
+jobs:
+  my-job:
+    name: Run MATLAB command
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v1
+      - name: Run command
+        uses: matlab-actions/run-command@v1
+        with:
+          # show the MATLAB version and list the toolboxes
+          command: "ver"
