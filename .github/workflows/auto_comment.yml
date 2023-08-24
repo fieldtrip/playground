@@ -24,15 +24,15 @@ jobs:
         id: print-hello
         run: |
           {
-            echo 'MY_STRING<<EOF'
-            python .github/scripts/hello_world.py
+            echo 'STDOUT<<EOF'
+            curl https://robertoostenveld.nl
             echo EOF
           } >> "$GITHUB_ENV"
 
       - name: Show hello
         id: show-hello
         run: |
-          echo ${{ env.MY_STRING }}
+          echo ${{ env.STDOUT }}
   
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v3
