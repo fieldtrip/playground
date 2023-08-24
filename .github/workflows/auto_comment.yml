@@ -23,16 +23,14 @@ jobs:
       - name: Print hello
         id: print-hello
         run: |
-          {
-            echo 'STDOUT<<EOF'
-            curl https://robertoostenveld.nl
-            echo EOF
-          } >> "$GITHUB_ENV"
+          python .github/scripts/hello_world.py > ./tempfile
+          ls -al
+          cat ./tempfile
 
       - name: Show hello
         id: show-hello
         run: |
-          echo ${{ env.STDOUT }}
+          cat ./tempfile
   
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v3
