@@ -22,10 +22,8 @@ jobs:
 
       - name: Print hello
         run: |
-          pwd
-          ls
-          tree
-          python .github/script/hello_world.py
+          ls -al
+          python .github/scripts/hello_world.py
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v3
