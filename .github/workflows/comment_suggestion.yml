@@ -23,7 +23,7 @@ jobs:
       - name: Find suggested tests
         id: print-hello
         run: |
-          python .github/scripts/comment_suggestions.py > ./comment
+          python .github/scripts/comment_suggestion.py > ./comment
 
       - name: Create comment with suggested tests
         uses: peter-evans/create-or-update-comment@v3
