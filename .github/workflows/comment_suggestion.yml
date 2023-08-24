@@ -1,4 +1,4 @@
-name: Create comment
+name: Suggest tests
           
 on:
   pull_request:
@@ -15,14 +15,18 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Create comment
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Find suggested tests
+        id: print-hello
+        run: |
+          python .github/scripts/comment_suggestion.py > ./comment
+
+      - name: Create comment with suggested tests
         uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ github.event.number }} 
-          body: |
-            This is a multi-line test comment
-            - With GitHub **Markdown** :sparkles:
-            - Created by [create-or-update-comment][1]
-
-            [1]: https://github.com/peter-evans/create-or-update-comment
-          reactions: '+1'
+          body-path: ./comment
