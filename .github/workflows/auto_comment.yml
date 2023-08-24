@@ -22,7 +22,9 @@ jobs:
 
       - name: Print hello
         run: |
-          ls -al
+          ls -al .
+          ls -al .github
+          ls -al .github/scripts
           python .github/scripts/hello_world.py
 
       - name: Create comment
