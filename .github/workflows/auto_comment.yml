@@ -22,12 +22,12 @@ jobs:
 
       - name: Print hello
         id: print-hello
-        # this uses https://trstringer.com/github-actions-multiline-strings/
         run: |
-          MY_STRING=$(python .github/scripts/hello_world.py)
-          echo "MY_STRING<<EOF" >> $GITHUB_ENV
-          echo "$MY_STRING" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          {
+            echo 'MY_STRING<<EOF'
+            python .github/scripts/hello_world.py
+            echo EOF
+          } >> "$GITHUB_ENV"
 
       - name: Show hello
         id: show-hello
