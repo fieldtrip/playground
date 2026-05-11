@@ -1,3 +1,0 @@
-function oneTest
-
-disp('one')

@@ -1,3 +1,0 @@
-function twoTest
-
-disp('two');
