@@ -1,12 +1,13 @@
 name: Compile MEX files
 
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
-  # Allow manual trigger
   workflow_dispatch:
+  push:
+    paths:
+      - '**/*.c'
+      - '**/*.h'
+      - '**/*.cpp'
+      - '**/*.hpp'
 
 jobs:
   compile-mex:
@@ -26,7 +27,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     
     steps:
-    - name: Checkout code
+    - name: Checkout FieldTrip
       uses: actions/checkout@v6
     
     - name: Setup MATLAB
@@ -34,32 +35,11 @@ jobs:
       with:
         release: ${{ matrix.matlab-version }}
     
-    - name: Verify MATLAB installation
+    - name: Compile MEX files
       run: |
-        matlab -batch "disp('MATLAB version:'); version; disp('MEX configured for:'); mex -setup"
-      shell: bash
-    
-    - name: Compile MEX file with Makefile
-      run: |
-        # Clean previous builds
         make clean || true
-        
-        # Build MEX file
         make
       shell: bash
-    
-    - name: List compiled files
-      run: |
-        echo "Compiled MEX files:"
-        find . -name "*.mex*" -type f
-      shell: bash
-    
-    - name: Test MEX files (optional)
-      run: |
-        # Replace 'your_mex_function' with your actual MEX function name
-        matlab -batch "try; disp('Testing MEX file...'); your_mex_function; catch ME; disp(ME.message); exit(1); end; exit(0);"
-      shell: bash
-      continue-on-error: true
     
     - name: Upload MEX artifacts
       uses: actions/upload-artifact@v4
