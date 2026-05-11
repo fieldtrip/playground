@@ -1,4 +1,4 @@
-name: Compile MEX File
+name: Compile MEX files
 
 on:
   push:
@@ -14,8 +14,10 @@ jobs:
       fail-fast: false
       matrix:
         # Add MATLAB versions as needed
-        matlab-version: ['R2023b', 'R2024a']
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        # matlab-version: ['R2023b', 'R2024b', 'R2025b']
+        # os: [ubuntu-latest, windows-latest, macos-latest]
+        matlab-version: ['R2024b']
+        os: [ubuntu-latest]  
         # Exclude combinations that don't work
         exclude:
           - os: macos-latest
@@ -52,7 +54,7 @@ jobs:
         find . -name "*.mex*" -type f
       shell: bash
     
-    - name: Test MEX file (optional)
+    - name: Test MEX files (optional)
       run: |
         # Replace 'your_mex_function' with your actual MEX function name
         matlab -batch "try; disp('Testing MEX file...'); your_mex_function; catch ME; disp(ME.message); exit(1); end; exit(0);"
@@ -65,5 +67,4 @@ jobs:
         name: mex-files-${{ matrix.os }}-${{ matrix.matlab-version }}
         path: |
           *.mex*
-          *.dll
         if-no-files-found: warn
