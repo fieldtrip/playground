@@ -14,24 +14,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Add MATLAB versions as needed
-        matlab-version: ['R2023b', 'R2024b', 'R2025b']
         os: [ubuntu-latest, windows-latest, macos-latest]
-        # Exclude combinations that don't work
-        exclude:
-          - os: macos-latest
-            matlab-version: R2023b
+        release: ['R2021a', 'R2021b', 'R2022a', 'R2022b', 'R2023a', 'R2023b', 'R2024a', 'R2024b', 'R2025a', 'R2025b', 'R2026a']
     
     runs-on: ${{ matrix.os }}
     
     steps:
-    - name: Checkout FieldTrip
+    - name: Checkout repository
       uses: actions/checkout@v6
     
     - name: Setup MATLAB
       uses: matlab-actions/setup-matlab@v3
       with:
-        release: ${{ matrix.matlab-version }}
+        release: ${{ matrix.release }}
     
     - name: Compile MEX files
       run: |
@@ -39,10 +34,10 @@ jobs:
         make
       shell: bash
     
-    - name: Upload MEX artifacts
+    - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: mex-files-${{ matrix.os }}-${{ matrix.matlab-version }}
+        name: mex-files-${{ matrix.os }}-${{ matrix.release }}
         path: |
           *.mex*
         if-no-files-found: warn
