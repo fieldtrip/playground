@@ -15,10 +15,8 @@ jobs:
       fail-fast: false
       matrix:
         # Add MATLAB versions as needed
-        # matlab-version: ['R2023b', 'R2024b', 'R2025b']
-        # os: [ubuntu-latest, windows-latest, macos-latest]
-        matlab-version: ['R2024b']
-        os: [ubuntu-latest]  
+        matlab-version: ['R2023b', 'R2024b', 'R2025b']
+        os: [ubuntu-latest, windows-latest, macos-latest]
         # Exclude combinations that don't work
         exclude:
           - os: macos-latest
