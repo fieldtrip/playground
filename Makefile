@@ -1,6 +1,5 @@
-MATLABROOT = 
 MEXCMD = mex
-MEXEXT = $(shell $(MATLABROOT)/bin/mexext)
+MEXEXT = $(shell mexext)
 
 MEXFILES = \
 	det2x2.$(MEXEXT) \
