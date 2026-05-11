@@ -1,5 +1,5 @@
-MATLABROOT = /Applications/MATLAB_R2025b.app
-MEXCMD = $(MATLABROOT)/bin/mex
+MATLABROOT = 
+MEXCMD = mex
 MEXEXT = $(shell $(MATLABROOT)/bin/mexext)
 
 MEXFILES = \
